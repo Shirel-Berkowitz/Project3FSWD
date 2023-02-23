@@ -11,57 +11,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 <body>
   <header>
-    <a href="#Yummy"><h1 id="yummy">Yummy!</h1></a>
+    <a href="#Yummy"><h1 id="Yummy">Yummy!</h1></a>
     <nav>
       <ul>
         <li><a href="#Desserts">Desserts</a></li>
         <li><a href="#Saleds">Saleds</a></li>
-        <li><a href="#MainCourses">main courses</a></li>
+        <li><a href="#MainCourses">Main courses</a></li>
         <li><a href="#MyRecipes">My recipes</a></li>
         <li><a href="#SignIn">Sign in</a></li>
       </ul>
     </nav>
   </header>
+
   <main id="home">
     <template id="Yummy-template">
       <section id="Yummy" class="page">
-      <h2>Welcome to my SPA!</h2>
-      <p>This is the home page.</p>
+        <h2>Welcome to our page</h2>
+        <p>This is the home page.</p>
       </section>
     </template>
+
     <template id="Desserts-template">
       <section id="Desserts" class="page">
-      <h2>Welcome to my SPA!</h2>
-      <p>This is the home page.</p>
+        <h2>Welcome to desserts page</h2>
+        <p>This is the desserts page.</p>
       </section>
     </template>
+
     <template id="Saleds-template">
       <section id="Saleds" class="page">
-      <h2>About Us</h2>
-      <p>We are a small team of developers.</p>
+        <h2>Welcome to saleds page</h2>
+        <p>This is the saleds page.</p>
       </section>
     </template>
 
+    <template id="MainCourses-template">
+      <section id="MainCourses" class="page">
+        <h2>bla bla</h2>
+      </section>
+    </template>
+  
+    <template id="MyRecipes-template">
+      <section id="MyRecipes" class="page">
+        <h2>recipes</h2>
+      </section>
+    </template>
+  
+    <template id="SignIn-template">
+      <section id="SignIn" class="page">
+        <div class="loginbox">
+          <h1>Log here</h1>
+          <div>
+              <p>username</p>
+              <input type="text" name="username" id="username" placeholder="type username" required>
+              <p>password</p>
+              <input type="password" name="password" id="password" placeholder="type password" required>
+              <center>
+                  <button type="submit" formaction="homePage.html" >Login</button>
+                  <br><br><a href="#forgetpwd">Forget password?</a>
+                  <br><br><a href="#SignUp">New here? click</a>
+              </center>
+              
+          </div>
+          <script src="script.js"></script>
+     
+        </div> 
+       
+      </section>
+    </template>
 
-
-    <section>
-      <template id="MainCourses-template">
-        <h2>Contact Us</h2>
-        <p>You can reach us at contact@myspa.com</p>
-      </template>
-    </section>
-    <section>
-      <template id="MyRecipes-template">
-        <h2>Contact Us</h2>
-        <p>You can reach us at contact@myspa.com</p>
-      </template>
-    </section>
-    <section>
-      <template id="SignIn-template">
-        <h2>Contact Us</h2>
-        <p>You can reach us at contact@myspa.com</p>
-      </template>
-    </section>
+    <template id="SignUp-template">
+      <section id="SignUp" class="page">
+        <p>heyyy</p>
+      </section>
+    </template>
+    
   </main>
     <script src="script.js"></script>
 </body>
