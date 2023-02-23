@@ -9,17 +9,17 @@ const pages = {
 };
 
 function showPage(id) {
-  const home = document.getElementById('home');
-  home.innerHTML = '';
+  const content = document.getElementById('content');
+  content.innerHTML = '';
   const page = pages[id];
-  home.appendChild(page);
-  const pageElement = home.querySelector('.page');
+  content.appendChild(page);
+  const pageElement = content.querySelector('.page');
   pageElement.classList.add('active');
 }
 
 function handleNavigation() {
   const hash = window.location.hash.substring(1);
-  showPage(hash || 'home');
+  showPage(hash || 'Yummy');
 }
 
 window.addEventListener('hashchange', handleNavigation);
