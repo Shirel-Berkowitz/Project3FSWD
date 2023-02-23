@@ -1,13 +1,16 @@
-const pages = document.querySelectorAll('.page');
+const pages = {
+  home: document.getElementById('home-template').content.cloneNode(true),
+  about: document.getElementById('about-template').content.cloneNode(true),
+  contact: document.getElementById('contact-template').content.cloneNode(true)
+};
 
 function showPage(id) {
-  pages.forEach(page => {
-    if (page.id === id) {
-      page.classList.add('active');
-    } else {
-      page.classList.remove('active');
-    }
-  });
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  const page = pages[id];
+  content.appendChild(page);
+  const pageElement = content.querySelector('.page');
+  pageElement.classList.add('active');
 }
 
 function handleNavigation() {
