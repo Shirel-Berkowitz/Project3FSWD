@@ -1,7 +1,7 @@
 const pages = {
-  home: document.getElementById('home-template').content.cloneNode(true),
-  about: document.getElementById('about-template').content.cloneNode(true),
-  contact: document.getElementById('contact-template').content.cloneNode(true)
+  Yummy: document.getElementById('Yummy-template').content.cloneNode(true),
+  Desserts: document.getElementById('Desserts-template').content.cloneNode(true),
+  Saleds: document.getElementById('Saleds-template').content.cloneNode(true)
 };
 
 function showPage(id) {
