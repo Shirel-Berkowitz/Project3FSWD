@@ -22,6 +22,136 @@ function handleNavigation() {
   showPage(hash || 'Yummy');
 }
 
+function GetRecipeByID(id) {
+  // Check if localStorage is available
+  if (typeof(Storage) !== "undefined") {
+    // Get existing recipes from localStorage
+    let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+    // Find the recipe with the matching ID
+    let recipe = recipes.find(recipe => recipe.id === id);
+
+    // Return the found recipe, or null if not found
+    return recipe || null;
+  } else {
+    console.log("Sorry, your browser does not support web storage...");
+  }
+}
+//example to use the GetRecipeByID function
+/*
+let recipeId = 1; // Replace with the ID of the recipe you want to find
+let foundRecipe = findRecipeById(recipeId);
+if (foundRecipe) {
+  console.log("Found recipe:", foundRecipe);
+} else {
+  console.log("Recipe not found.");
+}
+*/
+
+function GetRecipeByName(name) {
+  // Check if localStorage is available
+  if (typeof(Storage) !== "undefined") {
+    // Get existing recipes from localStorage
+    let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+    // Find the recipe with the matching name
+    let recipe = recipes.find(recipe => recipe.name === name);
+
+    // Return the found recipe, or null if not found
+    return recipe || null;
+  } else {
+    console.log("Sorry, your browser does not support web storage...");
+  }
+}
+
+function CreateRecipe(name, ingredients) {
+  // Check if localStorage is available
+  if (typeof(Storage) !== "undefined") {
+    // Get existing recipes from localStorage
+    let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+    // Generate a new ID for the recipe
+    let newId = 1;
+    if (recipes.length > 0) {
+      // If there are existing recipes, find the highest ID and add 1
+      let maxId = Math.max(...recipes.map(recipe => recipe.id));
+      newId = maxId + 1;
+    }
+    // Create the new recipe object
+    let newRecipe = { id: newId, name, ingredients };
+
+    // Add the new recipe to the recipes array
+    recipes.push(newRecipe);
+
+    // Save the updated recipes array back to localStorage
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+  } else {
+    console.log("Sorry, your browser does not support web storage...");
+  }
+}
+/*
+example to create a new recipe:
+let name = "Pasta with Tomato Sauce";
+let ingredients = [
+  { name: "pasta", amount: "250g" },
+  { name: "tomatoes", amount: "4" },
+  { name: "garlic", amount: "2 cloves" },
+  { name: "olive oil", amount: "2 tbsp" },
+  { name: "salt", amount: "to taste" },
+  { name: "pepper", amount: "to taste" }
+];
+addRecipe(name, ingredients);
+*/
+
+function UpdateRecipe(id, name, ingredients) {
+  // Check if localStorage is available
+  if (typeof(Storage) !== "undefined") {
+    // Get existing recipes from localStorage
+    let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+    // Find the index of the recipe with the matching ID
+    let index = recipes.findIndex(recipe => recipe.id === id);
+
+    if (index !== -1) {
+      // Update the recipe with the new name and ingredients
+      recipes[index].name = name;
+      recipes[index].ingredients = ingredients;
+
+      // Save the updated recipes array back to localStorage
+      localStorage.setItem("recipes", JSON.stringify(recipes));
+    } else {
+      console.log("Recipe not found.");
+    }
+  } else {
+    console.log("Sorry, your browser does not support web storage...");
+  }
+}
+
+function DeleteRecipe(id) {
+  // Check if localStorage is available
+  if (typeof(Storage) !== "undefined") {
+    // Get existing recipes from localStorage
+    let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+    // Find the index of the recipe with the matching ID
+    let index = recipes.findIndex(recipe => recipe.id === id);
+
+    if (index !== -1) {
+      // Remove the recipe from the recipes array
+      recipes.splice(index, 1);
+
+      // Save the updated recipes array back to localStorage
+      localStorage.setItem("recipes", JSON.stringify(recipes));
+    } else {
+      console.log("Recipe not found.");
+    }
+  } else {
+    console.log("Sorry, your browser does not support web storage...");
+  }
+}
+
+
+
+
 window.addEventListener('hashchange', handleNavigation);
 
 handleNavigation();
