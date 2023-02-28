@@ -151,7 +151,6 @@ function DeleteRecipe(id) {
 
 
 
-
 window.addEventListener('hashchange', handleNavigation);
 
 handleNavigation();
