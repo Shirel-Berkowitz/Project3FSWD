@@ -48,17 +48,31 @@ class server{
     AddUser(username, pwd){
         //some logic on the data befor pass to DB.
         if(username.length <3)   
-            return "wrong username";
+            return "Username must be 3 characters or more";
+        else if(containsSpecialChars(username))
+            return "Username can't be with special characters";
+        //chack password
+        else if (!isStrongPassword(pwd))
+            return "Weak password!";
         else    
             this.dbAPI.add_username(username, pwd);
     }
 
     addRecipe(username, newRecipe) {
+        //check if recipe is already in favorites
+        //*************//
+
+
+
         this.dbAPI.addRecipe(username, newRecipe);
     }
      
     //read
     getFavoriteForUser(username) { 
+        //check that array of favorite recepied isn't empty
+        //*************//
+        //added in dbAPI
+
         return this.dbAPI.getFavoriteForUser(username);
     }
 
@@ -69,20 +83,51 @@ class server{
 
     //update
     updatePwd(username, newPassword){
+        //chack that new password is strong
+        if (!isStrongPassword(pwd))
+            return "Weak password!";
         return this.dbAPI.updatePwd(username, newPassword);
     }
 
     //delete
     deleteRecipe(username, recipe){
+        //chack that recipe exists
+        //**************//
+
         this.dbAPI.deleteRecipe(username, recipe);
     }
 
     deleteUser(username){
+        //chack that user exists
+        //**************//
+        
         this.dbAPI.deleteUser(username);
     }
 }
 
 
+//check if the input includes special characters and if so - returns true, else return false
+function containsSpecialChars(str) {
+    const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    return regex.test(str);
+}  
 
-
-
+//check if function is strong enough (at least: 6 characters, 1 lowercase, 1 uppercase, 1 digit and a special characters)
+function isStrongPassword(password) {
+    // regular expressions for password requirements
+    const minLengthRegex = /.{6,}/;
+    const lowercaseRegex = /[a-z]/;
+    const uppercaseRegex = /[A-Z]/;
+    const numberRegex = /[0-9]/;
+    const specialCharRegex = /[$-/:-?{-~!"^_`\[\]]/;
+  
+    // check password against requirements
+    const hasMinLength = minLengthRegex.test(password);
+    const hasLowercase = lowercaseRegex.test(password);
+    const hasUppercase = uppercaseRegex.test(password);
+    const hasNumber = numberRegex.test(password);
+    const hasSpecialChar = specialCharRegex.test(password);
+  
+    // return true if all requirements are met
+    return hasMinLength && hasLowercase && hasUppercase && hasNumber && hasSpecialChar;
+}
