@@ -70,9 +70,8 @@ class server{
     //read
     getFavoriteForUser(username) { 
         //check that array of favorite recepied isn't empty
-        //*************//
-        //added in dbAPI
-
+        if(this.dbAPI.getFavoriteForUser(username).length == 0)
+            return "No favorite recipes yet";
         return this.dbAPI.getFavoriteForUser(username);
     }
 

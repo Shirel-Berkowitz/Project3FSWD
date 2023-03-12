@@ -29,8 +29,7 @@ class dbAPI{
         let user = {
             "username":username,
             "favoritesRec":[],
-            //?
-            "Email":Email
+            //"Email":Email
         };
 
         // update the record in the local storage.
@@ -67,7 +66,6 @@ class dbAPI{
         users[username] = newPassword;
         localStorage.setItem("users", JSON.stringify(users));
         return true;
-
     }
 
     //delete
@@ -79,7 +77,6 @@ class dbAPI{
 
         localStorage.setItem(username, JSON.stringify(user));
         return true;
-
     }
 
     //delete user
