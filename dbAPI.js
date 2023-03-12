@@ -60,6 +60,12 @@ class dbAPI{
         return users;
     }
 
+    //get list of favorite recipes for user
+    getFavrecipesList(username){
+        let user = JSON.parse(localStorage.getItem(JSON.stringify(username)));
+        return user["favoritesRec"];
+    }
+
     //update
     updatePwd(username, newPassword){
         let users = this.getUsersList();
@@ -88,6 +94,4 @@ class dbAPI{
 
         return true;
     }
-
-    
 }

@@ -60,11 +60,18 @@ class server{
 
     addRecipe(username, newRecipe) {
         //check if recipe is already in favorites
-        //*************//
-
-
-
-        this.dbAPI.addRecipe(username, newRecipe);
+        let index = -1;
+        let fevRec = getFavrecipesList(username);
+        for (let i = 0; i < fevRec.length; i++) {
+            if (fevRec[i] === newRecipe) {
+                index = i;
+                return "Recipe already in favorites!";
+            }
+        }
+        // If no matching recipe was found, add recipe to favorites array
+        if (index === -1) {
+            this.dbAPI.addRecipe(username, newRecipe);
+        }   
     }
      
     //read
@@ -78,7 +85,6 @@ class server{
     getUsersList(){
         return this.dbAPI.getUsersList();
     }
-   
 
     //update
     updatePwd(username, newPassword){
@@ -88,18 +94,26 @@ class server{
         return this.dbAPI.updatePwd(username, newPassword);
     }
 
-    //delete
+    //delete recipe from favorites
     deleteRecipe(username, recipe){
         //chack that recipe exists
-        //**************//
-
-        this.dbAPI.deleteRecipe(username, recipe);
+        let index = -1;
+        let fevRec = getFavrecipesList(username);
+        for (let i = 0; i < fevRec.length; i++) {
+            if (fevRec[i] === newRecipe) {
+                index = i;
+                this.dbAPI.deleteRecipe(username, recipe);
+                break;
+            }
+        }
+        // If no matching recipe was found, add recipe to favorites array
+        if (index === -1) {
+            return "Error! Recipe was not found";
+        }   
     }
 
     deleteUser(username){
-        //chack that user exists
-        //**************//
-        // Find the index of the user with the matching username
+        //chack that user exists - find the index of the user with the matching username
         let index = -1;
         let users = this.dbAPI.getUsersList();
         for (let i = 0; i < users.length; i++) {
@@ -109,7 +123,7 @@ class server{
             }
         }
           
-        // If no matching user was found, return the original array
+        // If no matching user was found, return an error message
         if (index === -1) {
           return "User was not found";
         }  
