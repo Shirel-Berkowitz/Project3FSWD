@@ -99,7 +99,20 @@ class server{
     deleteUser(username){
         //chack that user exists
         //**************//
-        
+        // Find the index of the user with the matching username
+        let index = -1;
+        let users = this.dbAPI.getUsersList();
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].username === username) {
+                index = i;
+                break;
+            }
+        }
+          
+        // If no matching user was found, return the original array
+        if (index === -1) {
+          return "User was not found";
+        }  
         this.dbAPI.deleteUser(username);
     }
 }
