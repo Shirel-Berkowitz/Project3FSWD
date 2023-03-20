@@ -14,7 +14,9 @@ class FXMLHttpRequest {
     // methods: ctor, open and save function
 
     //default ctor
-    constructor() {}
+    constructor() {
+        this.onload=()=>{};
+    }
 
     //function of open that get: method, url etc
     open(method, url, Asyncronic = true, user = null, password = null) {
@@ -31,10 +33,14 @@ class FXMLHttpRequest {
     send(body = "") {       
         const d = this.data;
         if (this.data["Asyncronic"]) {
-            network.Asyncronic(JSON.stringify({ d }));
+            let response= this.network.isAsyncronic(JSON.stringify({ d, body }));
+            if(response)
+                this.onload(response);
+            else
+                this.onload();
         }
         else {
-            network.Syncronic(JSON.stringify({ d }));
+            this.network.Syncronic(JSON.stringify({ d, body }));
         }
     }
 

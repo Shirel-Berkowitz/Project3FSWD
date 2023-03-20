@@ -33,7 +33,7 @@ class dbAPI{
         };
 
         // update the record in the local storage.
-        LocalStorage.setItem(username, JSON.Stringify(user));
+        localStorage.setItem(username, JSON.stringify(user));
         return true;
     }
 
