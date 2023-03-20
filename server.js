@@ -1,4 +1,4 @@
-//change the parameters and 
+//change the parameters and
 
 class server{
 
@@ -28,8 +28,7 @@ class server{
             } 
             else {
                 this.addRecipe(recivedData["body"].username, recivedData["body"].title, recivedData["body"].task);
-            }
-            
+            }            
         } 
         else if(recivedData["d"].method === 'PUT'){
             this.updatePwd(recivedData["body"].username, recivedData["body"].title, recivedData["body"].new_content);
