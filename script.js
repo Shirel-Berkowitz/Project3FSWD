@@ -22,6 +22,33 @@ function handleNavigation() {
   showPage(hash || 'Yummy');
 }
 
+//show the favorites recipes in "My recipes"
+function showRecipes(){
+    let currentUser= localStorage.getItem("loggedInUser");
+    const fxhr = new FXMLHttpRequest()
+    fxhr.open("GET", "favorite");
+    let fev = document.getElementById('favorites');
+    fxhr.onload = (fevRec) => {
+
+        for (const key in fevRec) {
+            fev.innerHTML += `<li> ${key}: ${fevRec[key]}</li>`;
+        }
+    };
+    fxhr.send(currentUser);
+}
+
+//add recipe to favorites recipes
+function addRecipe(){
+  let currentUser= localStorage.getItem("loggedInUser");
+  //the title of the recipe-button
+  let rec = document.getElementById('...').value;
+  const fxhr = new FXMLHttpRequest()
+  fxhr.open("POST", "addFev");
+  fxhr.onload = ()=>{alert("Successfuly added")};
+  fxhr.send({"username":currentUser, "newRecipe":rec});
+}
+
+
 function GetRecipeByID(id) {
   // Check if localStorage is available
   if (typeof(Storage) !== "undefined") {
