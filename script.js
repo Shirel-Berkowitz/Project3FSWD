@@ -29,7 +29,6 @@ function showRecipes(){
     fxhr.open("GET", "favorite");
     let fev = document.getElementById('favorites');
     fxhr.onload = (fevRec) => {
-
         for (const key in fevRec) {
             fev.innerHTML += `<li> ${key}: ${fevRec[key]}</li>`;
         }
@@ -41,13 +40,12 @@ function showRecipes(){
 function addRecipe(){
   let currentUser= localStorage.getItem("loggedInUser");
   //the title of the recipe-button
-  let rec = document.getElementById('...').value;
+  let rec = document.getElementById('favorite-button').value;
   const fxhr = new FXMLHttpRequest()
   fxhr.open("POST", "addFev");
   fxhr.onload = ()=>{alert("Successfuly added")};
   fxhr.send({"username":currentUser, "newRecipe":rec});
 }
-
 
 function GetRecipeByID(id) {
   // Check if localStorage is available
@@ -61,19 +59,9 @@ function GetRecipeByID(id) {
     // Return the found recipe, or null if not found
     return recipe || null;
   } else {
-    console.log("Sorry, your browser does not support web storage...");
+    console.log("Sorry, your browser does not support web storage");
   }
 }
-//example to use the GetRecipeByID function
-/*
-let recipeId = 1; // Replace with the ID of the recipe you want to find
-let foundRecipe = findRecipeById(recipeId);
-if (foundRecipe) {
-  console.log("Found recipe:", foundRecipe);
-} else {
-  console.log("Recipe not found.");
-}
-*/
 
 function GetRecipeByName(name) {
   // Check if localStorage is available
@@ -115,19 +103,6 @@ function CreateRecipe(name, ingredients) {
     console.log("Sorry, your browser does not support web storage...");
   }
 }
-/*
-example to create a new recipe:
-let name = "Pasta with Tomato Sauce";
-let ingredients = [
-  { name: "pasta", amount: "250g" },
-  { name: "tomatoes", amount: "4" },
-  { name: "garlic", amount: "2 cloves" },
-  { name: "olive oil", amount: "2 tbsp" },
-  { name: "salt", amount: "to taste" },
-  { name: "pepper", amount: "to taste" }
-];
-addRecipe(name, ingredients);
-*/
 
 function UpdateRecipe(id, name, ingredients) {
   // Check if localStorage is available
