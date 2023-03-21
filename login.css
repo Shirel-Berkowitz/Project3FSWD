@@ -152,9 +152,6 @@ body{
 
 .loginbox button:hover{
     cursor: pointer;
-    background: rgb(184, 110, 184);;
-    color: #000;
-
 }
 
 .loginbox a{
@@ -166,8 +163,4 @@ body{
     text-align: center;
     right: 100px;
     font-weight: bold;
-}
-
-.loginbox a:hover{
-    color: rgb(184, 110, 184);;
 }
