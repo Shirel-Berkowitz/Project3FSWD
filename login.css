@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: 'Amatic SC', cursive; /*for hebrew*/
+    font-family: 'Rubik Bubbles', cursive; /*for hebrew*/
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Varela Round', sans-serif;
+    font-family: 'Chewy', cursive;
+    font-family: 'Varela Round', sans-serif;
+
+}
+
+html{
+    /* height: 100%; */
+    /* background-color: antiquewhite; */
+    
+}
+
+body{
+    /* min-height: 100%; */
+    background: url(images/background1.png);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.header{
+    min-height: 100vh;
+    width: 44%;
+}
+
+.header h1{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 40px;
+    right: 65%;
+    left: 50%;
+    font-family: 'Chewy', cursive;
+    font-size: 50px;
+    color:brown;
+}
+
+.header h2{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 40px;
+    right: 65%;
+    left: 50%;
+    font-family: 'Chewy', cursive;
+    font-size: 70px;
+    color:brown;
+}
+
+
+
+/*textbox, label and div for username*/
+/* .divUser input{
+    text-align: right;
+    float: left;
+    display: inline-block;
+    transform: translateX(-50%) translateY(-50%);
+}
+.divUser label{
+    float: right;
+    display: inline-block;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform: translateX(-80%) translateY(-80%);
+} */
+
+.loginbox{
+    margin: 0 auto;
+    width: 300px;
+    height: 380px;
+    background: burlywood;
+    color: #fff;
+    top: 67%;
+    left:50%;
+    position: absolute;
+    /* display: inline-block; */
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 5%;
+}
+
+/* .user{
+    width: 60px;
+    height: 60px;
+    border-radius: 5%;
+    position: absolute;
+    top: 0px;
+    right: 240px;
+    left: calc(70% -70px);
+} */
+
+.loginbox h1{
+    margin: 0;
+    padding: 0 0 0px;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Amatic SC', cursive;
+    position: absolute;
+    top:10px;
+    right: 32%;
+
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+}
+
+.loginbox input{
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Amatic SC', cursive;
+
+}
+
+.loginbox button{
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 140px;
+    background: brown;
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    align-items: center;
+}
+
+.loginbox button:hover{
+    cursor: pointer;
+    background: antiquewhite;
+    color: #000;
+
+}
+
+.loginbox a{
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Amatic SC', cursive;
+    line-height: 20px;
+    color:chocolate;
+    text-align: center;
+    right: 100px;
+    font-weight: bold;
+}
+
+.loginbox a:hover{
+    color: antiquewhite;
+}

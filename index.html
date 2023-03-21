@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="FXMLHttpRequest.js"></script>
+    <script src="network.js"></script>
+    <script src="server.js"></script>
+    <script src="dbAPI.js"></script>
+
+
 <body>
   <header>
     <a href="#Yummy"><h1 id="YummyH1">Yummy!</h1></a>
@@ -17,7 +23,7 @@
         <li><a href="#Desserts">Desserts</a></li>
         <li><a href="#Saleds">Saleds</a></li>
         <li><a href="#MainCourses">Main courses</a></li>
-        <li><a href="#MyRecipes">My recipes</a></li>
+        <li><a onclick="showRecipes()" href="#MyRecipes">My recipes</a></li>
         <li><a href="#SignIn">Sign in</a></li>
       </ul>
     </nav>
@@ -27,6 +33,7 @@
     <template id="Yummy-template">
       <section id="Yummy" class="page">
         <h1>Most popular this week</h1>
+        <div id="helloUser"></div>
         <div class="image-container">
           <div class="column img__wrap">
               <img src="images/hamantash.jpeg">
@@ -114,10 +121,16 @@
     <template id="MyRecipes-template">
       <section id="MyRecipes" class="page">
         <h2>recipes</h2>
+        <div id="favorites">
+
+        </div>
       </section>
     </template>
-  
+
+
+  /*part of sign in- login*/
     <template id="SignIn-template">
+    <link rel="stylesheet" href="login.css">
       <section id="SignIn" class="page">
         <div class="loginbox">
           <h1>Log here</h1>
@@ -127,23 +140,79 @@
               <p>password</p>
               <input type="password" name="password" id="password" placeholder="type password" required>
               <center>
-                  <button type="submit" formaction="homePage.html" >Login</button>
+                  <button type="submit" onclick="login()" herf="#Yummy">Login</button>
                   <br><br><a href="#forgetpwd">Forget password?</a>
                   <br><br><a href="#SignUp">New here? click</a>
               </center>
               
           </div>
-          <script src="script2.js"></script>
+          <script src="login.js"></script>
      
         </div> 
        
       </section>
     </template>
 
+    /*part of sign up*/
     <template id="SignUp-template">
+    <link rel="stylesheet" href="signUp.css">  
       <section id="SignUp" class="page">
-        <p>heyyy</p>
+        <script src="signUp.js"></script>
+        <form style="border:1px solid #ccc" onsubmit="return register()">
+          <div class="container">
+            <h1>הרשמה</h1>
+            <br><br><p> מלא את הקובץ הזה על מנת להרשם לאתר<p class="bold"> שים לב! ביצירת משתמש אתה מאשר את <a href="">תקנון האתר </a></p></p>
+            <hr>
+        
+            <label for="user"><b>שם משתמש</b></label>
+            <input type="text" placeholder="הכנס שם משתמש" name="user" id="username" required>
+  
+            <br><label for="email"><b>אימייל</b></label>
+            <input type="email" placeholder="הכנס אימייל" name="email" id="email">
+        
+            <br><label for="psw"><b>סיסמא</b></label>
+            <input type="password" placeholder="הכנס סיסמא" name="psw" id="password" required>
+        
+            <br><label for="psw-repeat"><b>חזור על הסיסמא</b></label>
+            <input type="password" placeholder="חזור על הסיסמא" name="psw-repeat" required>
+         
+            <div class="clearfix">
+              <a href="index.html"><button type="button" class="cancelbtn" >ביטול</button></a>
+              <button type="submit" class="signupbtn" > הרשם</button>
+            </div>
+          </div>
+        </form>
       </section>
+    </template>
+    
+    /*part of forget password*/
+    <template>
+    <link rel="stylesheet" href="forgotPwd.css">
+      <header class="header">
+        <h2>?Forgot Your Password</h2>
+    </header>
+
+    <form class="box" onsubmit="return change(event)">
+        <img src="images/password_reset.png">
+        <input type="email" name="email" id="email" placeholder="הקש אימייל" required>
+        <button id="btn" formaction="index.html">איפוס סיסמא</button>
+        <script>
+        
+            function change(event){
+                let btn=document.getElementById("btn");
+                
+                    if(btn.innerHTML=='חזרה להתחברות'){
+                    return true;
+                }
+                else{
+                        alert("סיסמתך נשלחה למייל");
+                        btn.innerHTML='חזרה להתחברות';
+                        return false;
+                    }
+            } 
+             
+        </script>
+    </form>
     </template>
     
   </main>

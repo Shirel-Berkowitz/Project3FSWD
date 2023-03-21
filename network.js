@@ -2,8 +2,8 @@ class network{
     //obj from server class
     server= new server;
 
-    Asyncronic (data){
-        this.server.prossessRequest(data);
+    isAsyncronic (data){
+        return this.server.prossessRequest(data);
     }
 
     Syncronic(data){

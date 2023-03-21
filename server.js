@@ -11,33 +11,37 @@ class server{
         var recivedData = JSON.parse(data);
         
         if(recivedData["d"]["method"] === 'GET'){
-            if(recivedData["body"] == "usernames"){
-                this.getUsersList();
+            if(recivedData["d"].url == "usernames"){
+                return this.getUsersList();
             } 
-            else if(recivedData["body"] == "tasks"){
-                this.getFavoriteForUser();
+            else if(recivedData["d"].url == "favorite"){
+                return this.getFavoriteForUser(recivedData["body"]);
             }
             else{
-                this.getFavoriteForUser(recivedData["body"]);
-                //
+                return this.getFavoriteForUser(recivedData["body"]);
             }
         } 
         else if(recivedData["d"].method === 'POST' ){
-            if (recivedData["body"].username) {
+            if (recivedData["d"].url=="signUp") {
                 this.AddUser(recivedData["body"].username, recivedData["body"].password);
             } 
-            else {
-                this.addRecipe(recivedData["body"].username, recivedData["body"].title, recivedData["body"].task);
+            else if (recivedData["d"].url=="addFev") {
+                this.addRecipe(recivedData["body"].username, recivedData["body"].newRecipe);
             }            
         } 
         else if(recivedData["d"].method === 'PUT'){
-            this.updatePwd(recivedData["body"].username, recivedData["body"].title, recivedData["body"].new_content);
+            this.updatePwd(recivedData["body"].username, recivedData["body"].newPassword);
             
         }
         else if(recivedData["d"].method == 'DELETE'){
-            this.deleteRecipe(recivedData["body"].username, recivedData["body"].title);
+            if(recivedData["d"].url=="delrecipe"){
+                this.deleteRecipe(recivedData["body"].username, recivedData["body"].recipe);
+            }
+
+            else if(recivedData["d"].url=="deluser"){
+                this.deleteUser(recivedData["body"].username);
+            }
             
-            //deleteUser
         }
 
         return true;
@@ -48,13 +52,12 @@ class server{
         //some logic on the data befor pass to DB.
         if(username.length <3)   
             return "Username must be 3 characters or more";
-        else if(containsSpecialChars(username))
+        if(containsSpecialChars(username))
             return "Username can't be with special characters";
         //chack password
-        else if (!isStrongPassword(pwd))
-            return "Weak password!";
-        else    
-            this.dbAPI.add_username(username, pwd);
+        // if (!isStrongPassword(pwd))
+        //     return "Weak password!";
+        this.dbAPI.AddUser(username, pwd);
     }
 
     addRecipe(username, newRecipe) {
