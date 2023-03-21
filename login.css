@@ -39,7 +39,7 @@ body{
     left: 50%;
     font-family: 'Chewy', cursive;
     font-size: 50px;
-    color:brown;
+    color:purple;
 }
 
 .header h2{
@@ -52,7 +52,7 @@ body{
     left: 50%;
     font-family: 'Chewy', cursive;
     font-size: 70px;
-    color:brown;
+    color:purple;
 }
 
 
@@ -78,7 +78,7 @@ body{
     margin: 0 auto;
     width: 300px;
     height: 380px;
-    background: burlywood;
+    background: rgb(184, 110, 184);;
     color: #fff;
     top: 67%;
     left:50%;
@@ -142,7 +142,7 @@ body{
     outline: none;
     height: 30px;
     width: 140px;
-    background: brown;
+    background: purple;
     color: #fff;
     font-size: 22px;
     font-family: 'Amatic SC', cursive;
@@ -152,7 +152,7 @@ body{
 
 .loginbox button:hover{
     cursor: pointer;
-    background: antiquewhite;
+    background: rgb(184, 110, 184);;
     color: #000;
 
 }
@@ -162,12 +162,12 @@ body{
     font-size: 25px;
     font-family: 'Amatic SC', cursive;
     line-height: 20px;
-    color:chocolate;
+    color:black;
     text-align: center;
     right: 100px;
     font-weight: bold;
 }
 
 .loginbox a:hover{
-    color: antiquewhite;
+    color: rgb(184, 110, 184);;
 }

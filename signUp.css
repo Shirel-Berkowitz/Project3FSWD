@@ -29,7 +29,7 @@ h1{
 }
 
 h1,p, label{
-    color: brown;
+    color: purple;
 }
 
 /* Full-width input fields */
@@ -71,7 +71,7 @@ hr {
 } */
 
 .cancelbtn{
-  background-color: #c7716a;
+  background-color: purple;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -87,7 +87,7 @@ hr {
 }
 
 .signupbtn{
-  background-color: burlywood;
+  background-color: rgb(184, 110, 184);;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
