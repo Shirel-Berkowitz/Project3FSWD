@@ -38,9 +38,6 @@ function showRecipes(){
     let fev = document.getElementById('favorites');
     fxhr.onload = (fevRec) => {
          for (const key in fevRec) {
-        //   if(fevRec.length==0)
-            getFavoriteForUser(currentUser);
-        //   else 
             fev.innerHTML += `<li> ${key}: ${fevRec[key]}</li>`;
          }
     };
@@ -51,7 +48,7 @@ function showRecipes(){
 function addRecipe(){
   let currentUser= localStorage.getItem("loggedInUser");
   //the title of the recipe-button
-  let rec = document.getElementById('favorite-button').value;
+  let rec = document.getElementById("favorite-button").value;
   const fxhr = new FXMLHttpRequest()
   fxhr.open("POST", "addFev");
   fxhr.onload = ()=>{alert("Successfuly added")};

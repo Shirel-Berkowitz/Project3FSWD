@@ -44,16 +44,4 @@ class FXMLHttpRequest {
         }
     }
 
-
-    
-    //********************************************/
-    //*****************TODO***********************/
-    //onload
-    onload(XMLHttpRqst) {
-        if (XMLHttpRqst.status === 200) {
-            console.log(XMLHttpRqst.responseText);
-        } else {
-            console.log('Request failed with status ' + xhr.status);
-        }
-    };
 }
