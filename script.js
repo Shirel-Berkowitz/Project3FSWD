@@ -27,7 +27,7 @@ function logOut(){
   let Out=document.getElementById("logOut");
   Out.style.visibility="hidden";
   localStorage.removeItem("loggedInUser");
-  document.getElementById('helloUser').innerHTML = "";
+  document.getElementById('helloUser').innerHTML = '';
 }
 
 //show the favorites recipes in "My recipes"
@@ -38,6 +38,9 @@ function showRecipes(){
     let fev = document.getElementById('favorites');
     fxhr.onload = (fevRec) => {
         for (const key in fevRec) {
+          if(fevRec.length==0)
+            getFavoriteForUser(currentUser);
+          else 
             fev.innerHTML += `<li> ${key}: ${fevRec[key]}</li>`;
         }
     };
