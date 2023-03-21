@@ -37,12 +37,12 @@ function showRecipes(){
     fxhr.open("GET", "favorite");
     let fev = document.getElementById('favorites');
     fxhr.onload = (fevRec) => {
-        for (const key in fevRec) {
-          if(fevRec.length==0)
+         for (const key in fevRec) {
+        //   if(fevRec.length==0)
             getFavoriteForUser(currentUser);
-          else 
+        //   else 
             fev.innerHTML += `<li> ${key}: ${fevRec[key]}</li>`;
-        }
+         }
     };
     fxhr.send(currentUser);
 }
