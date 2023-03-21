@@ -25,6 +25,7 @@
         <li><a href="#MainCourses">Main courses</a></li>
         <li><a onclick="showRecipes()" href="#MyRecipes">My recipes</a></li>
         <li><a href="#SignIn">Sign in</a></li>
+        <li><button id="logOut" onclick="logOut()">log Out</button></li>
       </ul>
     </nav>
   </header>
@@ -37,9 +38,7 @@
         <div class="image-container">
           <div class="column img__wrap">
               <img src="images/hamantash.jpeg">
-              <button id="favorite-button">
-                
-              </button>
+              <button id="favorite-button"></button>
               <p class="text">Hamantaschen</p>
           </div>
           <div class="column img__wrap">
@@ -124,9 +123,7 @@
     <template id="MyRecipes-template">
       <section id="MyRecipes" class="page">
         <h2>recipes</h2>
-        <div id="favorites">
-
-        </div>
+        <div id="favorites"></div>
       </section>
     </template>
 

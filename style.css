@@ -18,6 +18,15 @@ header {
   padding: 10px;
 }
 
+#logOut{
+  visibility: hidden;
+  background-color: rgb(184, 110, 184);
+  border: none;
+  color:white;
+  cursor: pointer;
+  font-size: 15px;
+}
+
 #YummyH1{
   font-family: 'Shantell Sans', cursive;
   color: #fff;
@@ -44,6 +53,11 @@ nav a {
 
 nav a:hover {
   color: #333;
+}
+
+#logOut:hover {
+  color: #333;
+  cursor: pointer;
 }
 
 .page {

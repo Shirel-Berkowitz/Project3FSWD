@@ -22,6 +22,14 @@ function handleNavigation() {
   showPage(hash || 'Yummy');
 }
 
+//function for log out
+function logOut(){
+  let Out=document.getElementById("logOut");
+  Out.style.visibility="hidden";
+  localStorage.removeItem("loggedInUser");
+  document.getElementById('helloUser').innerHTML = "";
+}
+
 //show the favorites recipes in "My recipes"
 function showRecipes(){
     let currentUser= localStorage.getItem("loggedInUser");
