@@ -92,7 +92,7 @@ img {
 }
 
 img:hover{
-  filter: brightness(0.7);
+  filter: brightness(0.5);
 }
 
 .image-container {
@@ -122,13 +122,14 @@ img:hover{
 
 .img__wrap .text{
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   justify-content: center;
   transform: translate(-50%, -50%);
   color: white;
   visibility: hidden;
   transition: all 0.5s ease;
+  text-align: center;
 }
 
 .img__wrap:hover .image {
@@ -138,13 +139,14 @@ img:hover{
 .img__wrap:hover .text {
   color: white;
   visibility: visible;
+  left: 66%;
 }
 
 .img__wrap #favorite-button {
   position: absolute;
   bottom: 10px;
   padding: 5px 10px;
-  left: 50%;
+  left: 66%;
   transform: translateX(-50%);
   font-size: 16px;
   background-color: #fff;
