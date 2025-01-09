@@ -17,9 +17,9 @@ class server{
             else if(recivedData["d"].url == "favorite"){
                 return this.getFavoriteForUser(recivedData["body"]);
             }
-            else{
-                return this.getFavoriteForUser(recivedData["body"]);
-            }
+            // else{
+            //     return this.getFavoriteForUser(recivedData["body"]);
+            // }
         } 
         else if(recivedData["d"].method === 'POST' ){
             if (recivedData["d"].url=="signUp") {
